@@ -1,5 +1,4 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { setupDatabase } from "../supabase/setupDB";
 import { ingestDocs } from "../ingest/ingestDocs";
 
 
@@ -10,11 +9,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(405).json({
             message: "Method not allowed"
         });
-    }
-
-    if(!isDBReady) {
-        await setupDatabase();
-        isDBReady = true;
     }
 
     const token = req.headers["x-api-key"];

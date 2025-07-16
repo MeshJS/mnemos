@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/discord/registerSlashCommand.ts","./src/services/apiService.ts","./src/utils/splitMessages.ts","./src/utils/types.ts"],"version":"5.8.3"}

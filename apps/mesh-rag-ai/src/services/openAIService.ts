@@ -34,7 +34,7 @@ export async function getAnswerFromOpenAI(question: string, context: string): Pr
         const messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
             {
                 role: "system",
-                content: 'You are a technical documentation generator that outputs clean, well-formatted MDX without escaped \\n characters.\\n\\n' +
+                content: 'You are a MeshJS documentation expert. You are helping developers integrate blockchain functionality into web applications.You must generate the outputs clean, well-formatted MDX without escaped \\n characters.\\n\\n' +
                     'Use:\\n' +
                     '- Markdown headers (##, ###)\\n' +
                     '- Code blocks with proper language labels (```tsx, ```js)\\n' +

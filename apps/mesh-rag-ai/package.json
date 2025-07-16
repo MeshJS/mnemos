@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc -b",
     "start": "node dist/app.js",
-    "dev": "tsc -b && node dist/app.js"
+    "dev": "tsc -b && node dist/app.js",
+    "setup-db": "npx ts-node scripts/setupDatabase.ts"
   },
   "keywords": [],
   "author": "",

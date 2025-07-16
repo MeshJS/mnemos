@@ -80,11 +80,18 @@ AS $$
 $$;
 `
 
+const createVectorIndex = `
+CREATE INDEX IF NOT EXISTS isx_embedding_cosine
+ON documents USING hnsw (embedding vector_cosine_ops);
+`
+
 export async function setupDatabase() {
   try {
     await client.connect();
     await client.query(sqlSchema);
-    await client.query(matchdocumentsSchema)
+    await client.query(matchdocumentsSchema);
+    await client.query(createVectorIndex);
+    await client.query("ANALYZE documents");
     console.log("Database schema setup completed");
   } catch(error) {
     console.error("Error setting up database:", error);
